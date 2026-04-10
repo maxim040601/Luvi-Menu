@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+import MenuSection from '../components/MenuSection.astro';
+import AllergenLegend from '../components/AllergenLegend.astro';
+import Footer from '../components/Footer.astro';
+import { menuData } from '../types/menu';
+
+const menu = menuData;
+const sectionKeys = Object.keys(menu);
+---
+
+<Layout title="LUVI Lounge — Menükarte">
+  <Header />
+  <Nav />
+
+  <main class="content">
+    {sectionKeys.map((key, i) => {
+      const section = menu[key];
+      return (
+        <MenuSection
+          id={key}
+          title={section.title}
+          description={section.description}
+          type={section.type}
+          items={section.type === 'items' ? section.items : undefined}
+          brands={section.type === 'brands' ? section.brands : undefined}
+          categories={section.type === 'categories' ? section.categories : undefined}
+          extras={section.type === 'brands' ? section.extras : undefined}
+          isActive={i === 0}
+        />
+      );
+    })}
+
+    <AllergenLegend />
+    <Footer />
+  </main>
+
+  <script src="../scripts/tabs.js"></script>
+</Layout>

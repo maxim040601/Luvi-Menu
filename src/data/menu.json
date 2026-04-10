@@ -1,0 +1,185 @@
+{
+  "shisha": {
+    "title": "Shisha",
+    "description": "Unsere Tabaksorten im Überblick",
+    "type": "brands",
+    "nav": { "icon": "wind", "label": "Shisha", "group": "Shisha & Drinks" },
+    "brands": [
+      { "brand": "AL-WAHA", "items": [{ "name": "Traube Minze", "price": 15 }] },
+      { "brand": "AL-FAKHER", "items": [{ "name": "Doppel Apfel", "price": 15, "popular": true }] },
+      { "brand": "ALMASSIVA", "items": [
+        { "name": "Sommer in Beirut", "price": 15 },
+        { "name": "Bruderherz", "price": 15 },
+        { "name": "Blaulicht", "price": 15 }
+      ]},
+      { "brand": "True Passion", "items": [
+        { "name": "Watermelon", "price": 15 },
+        { "name": "Le Chill", "price": 15 }
+      ]},
+      { "brand": "187", "items": [{ "name": "Hamburg", "price": 15 }] },
+      { "brand": "Aqua Mentha", "items": [
+        { "name": "Blackbox", "price": 15 },
+        { "name": "Ananas", "price": 15 }
+      ]},
+      { "brand": "O's", "items": [{ "name": "African Queen", "price": 15 }] },
+      { "brand": "Chill Ma", "items": [{ "name": "Persian Apple", "price": 15 }] },
+      { "brand": "Holster", "items": [{ "name": "Ice Kaktuz", "price": 15 }] },
+      { "brand": "Nameless", "items": [{ "name": "Black Nana", "price": 15, "popular": true }] },
+      { "brand": "Falim", "items": [{ "name": "Falim", "price": 15 }] }
+    ],
+    "extras": [
+      { "name": "Neuer Kopf", "price": 6.5 },
+      { "name": "Eisschlauch", "price": 2 }
+    ]
+  },
+
+  "soft": {
+    "title": "Softdrinks",
+    "description": "Kalt & erfrischend",
+    "type": "items",
+    "nav": { "icon": "glass-water", "label": "Softdrinks", "group": "Shisha & Drinks" },
+    "items": [
+      { "name": "Wasser mit Sprudel", "price": 3, "desc": "0,33l" },
+      { "name": "Wasser still", "price": 3, "desc": "0,33l" },
+      { "name": "Red Bull", "price": 4, "desc": "0,25l" },
+      { "name": "Paulaner Spezi", "price": 4, "desc": "0,5l" },
+      { "name": "Elephant Bay", "price": 4, "desc": "Mango, Granatapfel, Lime Mint, Pink Grapefruit, Blueberry, Peach, Lemon, Kirsche, Exotic" }
+    ]
+  },
+
+  "heiss": {
+    "title": "Tee & Kaffee",
+    "description": "Heiß serviert",
+    "type": "categories",
+    "nav": { "icon": "coffee", "label": "Tee & Kaffee", "group": "Shisha & Drinks" },
+    "categories": [
+      { "category": "Tee", "items": [
+        { "name": "Schwarztee", "price": 3.5, "desc": "0,4l" },
+        { "name": "Pfefferminztee", "price": 3.5, "desc": "0,4l" },
+        { "name": "Kamillentee", "price": 3.5, "desc": "0,4l" },
+        { "name": "Früchtetee", "price": 3.5, "desc": "0,4l" },
+        { "name": "Apfeltee", "price": 3.5, "desc": "0,4l" }
+      ]},
+      { "category": "Kaffee", "items": [
+        { "name": "Espresso", "price": 2.5 },
+        { "name": "Tasse Kaffee", "price": 2.8 },
+        { "name": "Cappuccino", "price": 3.5, "allergens": "7" },
+        { "name": "Latte Macchiato", "price": 3.8, "allergens": "7" }
+      ]},
+      { "category": "Eiskaffee", "items": [
+        { "name": "Eiskaffee", "price": 6.5, "desc": "inkl. Kugel Vanilleeis", "allergens": "7" },
+        { "name": "Eiskaffee mit 43", "price": 7.5, "desc": "inkl. Kugel Vanilleeis", "allergens": "7" },
+        { "name": "Eiskaffee mit Baileys", "price": 7.5, "desc": "inkl. Kugel Vanilleeis", "allergens": "7" }
+      ]},
+      { "category": "Alkohol", "items": [
+        { "name": "Kaffee mit Baileys", "price": 5, "allergens": "7" },
+        { "name": "Kaffee mit 43", "price": 5, "allergens": "7" }
+      ]}
+    ]
+  },
+
+  "zero": {
+    "title": "Zero Getränke",
+    "description": "Alkoholfrei genießen",
+    "type": "items",
+    "nav": { "icon": "leaf", "label": "Zero", "group": "Shisha & Drinks" },
+    "items": [
+      { "name": "Cola Zero", "price": 4, "desc": "0,33l" },
+      { "name": "Paulaner Zero", "price": 4, "desc": "0,33l", "allergens": "1" },
+      { "name": "Elephant Bay Zero", "price": 4, "desc": "0,33l" },
+      { "name": "Red Bull Zero", "price": 4, "desc": "0,25l" }
+    ]
+  },
+
+  "bier": {
+    "title": "Bier & Wein",
+    "description": "Vom Fass, Flasche & ausgewählte Tropfen",
+    "type": "categories",
+    "nav": { "icon": "beer", "label": "Bier & Wein", "group": "Alkohol" },
+    "categories": [
+      { "category": "Bier", "items": [
+        { "name": "Fürstenberg", "price": 4, "desc": "0,3l", "allergens": "1" },
+        { "name": "Hefeweißbier", "price": 4, "desc": "0,3l", "allergens": "1" },
+        { "name": "Corona", "price": 4.5, "desc": "0,33l", "allergens": "1" },
+        { "name": "Desperados", "price": 4.5, "desc": "0,33l", "allergens": "1" },
+        { "name": "Colaweizen", "price": 5, "desc": "0,5l · altern. Banane/Kirsch", "allergens": "1" }
+      ]},
+      { "category": "Wein & Sekt", "items": [
+        { "name": "Weißwein", "price": 3.5, "desc": "0,2l", "allergens": "12" },
+        { "name": "Sekt", "price": 3.5, "desc": "0,1l", "allergens": "12" },
+        { "name": "Weißweinschorle", "price": 3, "desc": "0,2l · süß / sauer", "allergens": "12" }
+      ]}
+    ]
+  },
+
+  "shots": {
+    "title": "Shots",
+    "description": "2 cl",
+    "type": "items",
+    "nav": { "icon": "flame", "label": "Shots", "group": "Alkohol" },
+    "items": [
+      { "name": "Ficken", "price": 2.5 },
+      { "name": "Tequila", "price": 2.5, "desc": "Gold / Silber" },
+      { "name": "Jägermeister", "price": 2.5 },
+      { "name": "Vodka", "price": 2.5, "desc": "Classic / Melone" },
+      { "name": "Joster", "price": 2.5 },
+      { "name": "Waldfrucht", "price": 2.5 },
+      { "name": "Apfel", "price": 2.5 }
+    ]
+  },
+
+  "cocktails": {
+    "title": "Cocktails & Aperitifs",
+    "description": "Geschüttelt, gerührt & spritzig",
+    "type": "categories",
+    "nav": { "icon": "martini", "label": "Cocktails", "group": "Alkohol" },
+    "categories": [
+      { "category": "Aperitifs", "items": [
+        { "name": "Hugo", "price": 6.9, "desc": "Holundersirup, Sekt, Soda, Limetten, Minze", "allergens": "12" },
+        { "name": "Lillet Wildberry", "price": 6.9, "desc": "Lillet Blanc, Beeren, Schweppes Wildberry", "allergens": "12" },
+        { "name": "Aperol Spritz", "price": 6.9, "desc": "Aperol, Sekt, Soda", "allergens": "12" }
+      ]},
+      { "category": "Cocktails", "items": [
+        { "name": "Espresso Martini", "price": 7.5, "allergens": "7" },
+        { "name": "Sex on the Beach", "price": 7.5, "desc": "Vodka, Pfirsich, Ananas, OJ, Grenadine" },
+        { "name": "Piña Colada", "price": 7.5, "desc": "weißer Rum, Sahne, Kokossirup", "allergens": "7" },
+        { "name": "Long Island Ice Tea", "price": 8, "desc": "Rum, Vodka, Gin, Tequila, Triple Sec, Cola" }
+      ]}
+    ]
+  },
+
+  "long": {
+    "title": "Longdrinks",
+    "description": "Klassiker & Favoriten",
+    "type": "items",
+    "nav": { "icon": "cup-soda", "label": "Longdrinks", "group": "Alkohol" },
+    "items": [
+      { "name": "Jacky Cola / Bull", "price": 7 },
+      { "name": "Gin Tonic / Lemon", "price": 7 },
+      { "name": "Vodka Bull", "price": 7 },
+      { "name": "Chivas Cola", "price": 8 },
+      { "name": "Jägermeister Bull", "price": 7 },
+      { "name": "Malibu", "price": 7, "desc": "Kirsch / Maracuja / Ananas" },
+      { "name": "Campari", "price": 7, "desc": "Orange / Soda" },
+      { "name": "Mojito", "price": 7 }
+    ]
+  },
+
+  "flaschen": {
+    "title": "Flaschen",
+    "description": "inkl. 1L Cola, 1L Saft oder 4 Red Bull",
+    "type": "categories",
+    "nav": { "icon": "sparkles", "label": "Flaschen", "group": "Alkohol" },
+    "categories": [
+      { "category": "Flaschen", "items": [
+        { "name": "Jack Daniel's", "price": 89, "desc": "0,7l" },
+        { "name": "Three Sixty Vodka", "price": 89, "desc": "0,75l" }
+      ]},
+      { "category": "Premium", "items": [
+        { "name": "Chivas", "price": 120, "desc": "0,7l" },
+        { "name": "Grey Goose", "price": 110, "desc": "0,7l" },
+        { "name": "Moët Ice", "price": 150, "allergens": "12" }
+      ]}
+    ]
+  }
+}

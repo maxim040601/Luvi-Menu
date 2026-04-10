@@ -1,0 +1,28 @@
+---
+interface Props {
+  name: string;
+  price: number;
+  desc?: string;
+  allergens?: string;
+  popular?: boolean;
+}
+
+const { name, price, desc, allergens, popular } = Astro.props;
+
+function formatPrice(p: number): string {
+  if (p === Math.floor(p)) return p.toString();
+  return p.toFixed(2).replace('.', ',');
+}
+---
+
+<div class="item">
+  <div class="item-body">
+    <div class="item-row">
+      <span class="item-name">{name}</span>
+      {popular && <span class="item-popular">Beliebt</span>}
+      {allergens && <span class="item-allergen">{allergens}</span>}
+    </div>
+    {desc && <div class="item-desc">{desc}</div>}
+  </div>
+  <div class="item-price">{formatPrice(price)}</div>
+</div>

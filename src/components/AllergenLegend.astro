@@ -1,0 +1,13 @@
+---
+import { ALLERGENS } from '../types/menu';
+---
+
+<div class="legend">
+  <div class="legend-t">Allergene</div>
+  <div class="legend-grid">
+    {Object.entries(ALLERGENS).map(([code, name]) => (
+      <div class="legend-i"><span class="legend-n">{code}</span> {name}</div>
+    ))}
+  </div>
+  <div class="legend-note">Trotz sorgfältiger Zubereitung können Spuren weiterer Allergene enthalten sein. Bitte sprich uns bei Unverträglichkeiten an. Alle Preise in EUR inkl. MwSt.</div>
+</div>

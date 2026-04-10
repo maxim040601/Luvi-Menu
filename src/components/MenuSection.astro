@@ -1,0 +1,80 @@
+---
+import MenuItem from './MenuItem.astro';
+import type { MenuItem as MenuItemData, Brand, Category } from '../types/menu';
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  type: 'brands' | 'categories' | 'items';
+  items?: MenuItemData[];
+  brands?: Brand[];
+  categories?: Category[];
+  extras?: MenuItemData[];
+  isActive?: boolean;
+}
+
+const { id, title, description, type, items, brands, categories, extras, isActive } = Astro.props;
+const isPremium = id === 'flaschen';
+---
+
+<section class={`section${isActive ? ' active' : ''}`} id={`sec-${id}`} role="tabpanel" aria-labelledby={`tab-${id}`}>
+  <h2 class="sec-title">{title}</h2>
+  <p class="sec-desc">{description}</p>
+
+  {type === 'brands' && brands && (
+    <>
+      {brands.map((b) => (
+        <>
+          <div class="brand-label">{b.brand}</div>
+          {b.items.map((item) => (
+            <MenuItem name={item.name} price={item.price} desc={item.desc} allergens={item.allergens} popular={item.popular} />
+          ))}
+        </>
+      ))}
+      {extras && extras.length > 0 && (
+        <div class="extras-card">
+          <div class="extras-label">Extras</div>
+          {extras.map((item) => (
+            <MenuItem name={item.name} price={item.price} desc={item.desc} allergens={item.allergens} />
+          ))}
+        </div>
+      )}
+    </>
+  )}
+
+  {type === 'categories' && categories && (
+    <>
+      {categories.map((cat) => {
+        const usePremiumCard = isPremium && cat.category === 'Premium';
+        return (
+          <>
+            {usePremiumCard ? (
+              <div class="premium-card">
+                <h3 class="sub-cat">{cat.category}</h3>
+                {cat.items.map((item) => (
+                  <MenuItem name={item.name} price={item.price} desc={item.desc} allergens={item.allergens} popular={item.popular} />
+                ))}
+              </div>
+            ) : (
+              <>
+                <h3 class="sub-cat">{cat.category}</h3>
+                {cat.items.map((item) => (
+                  <MenuItem name={item.name} price={item.price} desc={item.desc} allergens={item.allergens} popular={item.popular} />
+                ))}
+              </>
+            )}
+          </>
+        );
+      })}
+    </>
+  )}
+
+  {type === 'items' && items && (
+    <>
+      {items.map((item) => (
+        <MenuItem name={item.name} price={item.price} desc={item.desc} allergens={item.allergens} popular={item.popular} />
+      ))}
+    </>
+  )}
+</section>
