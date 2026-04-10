@@ -1,5 +1,5 @@
 :root {
-  /* ── Colors ── */
+  /* ── Colors: Light ── */
   --bg: #f4efe9;
   --bg-elevated: #ebe5dd;
   --bg-card: rgba(255, 255, 255, 0.55);
@@ -13,7 +13,26 @@
   --gold-bg: rgba(150, 122, 78, 0.08);
   --border: rgba(0, 0, 0, 0.06);
   --border-strong: rgba(0, 0, 0, 0.1);
+}
 
+:root[data-theme="dark"] {
+  /* ── Colors: Dark ── */
+  --bg: #121212;
+  --bg-elevated: #1a1a1a;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.06);
+  --ink: #f0ece6;
+  --ink-soft: #b5b0a8;
+  --ink-muted: #807b73;
+  --gold: #c9a84c;
+  --gold-accent: #c9a84c;
+  --gold-soft: rgba(201, 168, 76, 0.15);
+  --gold-bg: rgba(201, 168, 76, 0.08);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.1);
+}
+
+:root {
   /* ── Typography ── */
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Outfit', system-ui, sans-serif;
@@ -578,4 +597,70 @@ body {
     max-width: 680px;
     padding: 0 var(--space-xl) 5rem;
   }
+}
+
+/* ── Dark Mode Overrides ── */
+:root[data-theme="dark"] .nav-wrap.scrolled {
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Theme Toggle ── */
+.theme-toggle {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  z-index: 200;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--ink-soft);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.2s ease;
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.theme-toggle .icon-moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.theme-toggle .icon-sun {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  opacity: 1;
+  transform: scale(1);
 }

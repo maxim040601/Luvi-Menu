@@ -197,7 +197,28 @@ function init() {
       observer.observe(sentinel);
     }
   }
+
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('luvi-theme', next); } catch {}
+    });
+  }
 }
+
+// Apply saved theme BEFORE init to avoid flash
+(function() {
+  try {
+    const saved = localStorage.getItem('luvi-theme');
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  } catch {}
+})();
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
