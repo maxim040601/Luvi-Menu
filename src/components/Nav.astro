@@ -1,0 +1,53 @@
+---
+import type { MenuData } from '../types/menu';
+import menuData from '../data/menu.json';
+
+const menu = menuData as unknown as MenuData;
+const sectionKeys = Object.keys(menu);
+
+const groups: Record<string, { id: string; label: string; icon: string }[]> = {};
+for (const key of sectionKeys) {
+  const section = menu[key];
+  const group = section.nav.group;
+  if (!groups[group]) groups[group] = [];
+  groups[group].push({ id: key, label: section.nav.label, icon: section.nav.icon });
+}
+
+const icons: Record<string, string> = {
+  'wind': '<path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>',
+  'glass-water': '<path d="M15.2 22H8.8a2 2 0 0 1-2-1.79L5 3h14l-1.81 17.21A2 2 0 0 1 15.2 22Z"/><path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"/>',
+  'coffee': '<path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a2 2 0 1 1 0 4h-1"/>',
+  'leaf': '<path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 20 2 20 2s-1.3 6.2 1 9.5"/><path d="M6.7 13.5c3-1.6 6.3-2.8 10.3-2.8"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/>',
+  'beer': '<path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 3 11 3s2 .5 3 .5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"/><path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/>',
+  'wine': '<path d="M8 22h8"/><path d="M7 10h10"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/>',
+  'flame': '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  'citrus': '<path d="M21.66 17.67a1.08 1.08 0 0 1-.04 1.6A12 12 0 0 1 4.73 2.38a1.1 1.1 0 0 1 1.61-.04z"/><path d="M19.65 15.66A8 8 0 0 1 8.35 4.34"/><path d="m14 10-5.5 5.5"/><path d="M14 17.85V10H6.15"/>',
+  'cup-soda': '<path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8"/><path d="M5 8h14"/><path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0"/><path d="m12 8 1-6h2"/>',
+  'martini': '<path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/>',
+  'sparkles': '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>',
+};
+
+const firstKey = sectionKeys[0];
+---
+
+<nav class="nav-wrap" id="nav-wrap" aria-label="Menükategorien">
+  {Object.entries(groups).map(([groupName, tabs]) => (
+    <div class="nav-row" role="tablist" aria-label={groupName}>
+      <span class="nav-label">{groupName}</span>
+      <div class="nav-scroll">
+        {tabs.map((tab) => (
+          <button
+            class={`nav-chip${tab.id === firstKey ? ' active' : ''}`}
+            data-tab={tab.id}
+            role="tab"
+            aria-selected={tab.id === firstKey ? 'true' : 'false'}
+            aria-controls={`sec-${tab.id}`}
+          >
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" set:html={icons[tab.icon]} />
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  ))}
+</nav>
