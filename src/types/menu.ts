@@ -57,3 +57,6 @@ export const ALLERGENS: Record<string, string> = {
   '8': 'Schalenfrüchte',
   '12': 'Sulfite',
 };
+
+import rawMenu from '../data/menu.json';
+export const menuData = rawMenu as MenuData;

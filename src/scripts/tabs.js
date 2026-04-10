@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchClear = document.getElementById('search-clear');
   const searchAll = document.getElementById('search-all');
 
-  let lastActiveTab = 'shisha';
+  const initialChip = document.querySelector('.nav-chip.active');
+  let lastActiveTab = initialChip ? initialChip.dataset.tab : 'shisha';
   let showingAll = false;
 
   function deactivateAllTabs() {
@@ -118,6 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
           next = next.nextElementSibling;
         }
         if (!hasVisibleItem) cat.classList.add('search-hidden');
+      });
+
+      // Hide extras-card / premium-card if all their items are hidden
+      section.querySelectorAll('.extras-card, .premium-card').forEach((card) => {
+        const cardItems = card.querySelectorAll('.item');
+        const hasVisibleCard = Array.from(cardItems).some((it) => !it.classList.contains('search-hidden'));
+        card.classList.toggle('search-hidden', !hasVisibleCard);
       });
 
       if (!hasVisible) {

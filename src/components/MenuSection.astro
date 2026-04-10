@@ -1,23 +1,6 @@
 ---
 import MenuItem from './MenuItem.astro';
-
-interface MenuItemData {
-  name: string;
-  price: number;
-  desc?: string;
-  allergens?: string;
-  popular?: boolean;
-}
-
-interface Brand {
-  brand: string;
-  items: MenuItemData[];
-}
-
-interface Category {
-  category: string;
-  items: MenuItemData[];
-}
+import type { MenuItem as MenuItemData, Brand, Category } from '../types/menu';
 
 interface Props {
   id: string;
@@ -62,8 +45,7 @@ const isPremium = id === 'flaschen';
 
   {type === 'categories' && categories && (
     <>
-      {categories.map((cat, i) => {
-        const isLast = i === categories.length - 1;
+      {categories.map((cat) => {
         const usePremiumCard = isPremium && cat.category === 'Premium';
         return (
           <>

@@ -195,7 +195,9 @@ body {
 }
 
 .brand-label.search-hidden,
-.sub-cat.search-hidden {
+.sub-cat.search-hidden,
+.extras-card.search-hidden,
+.premium-card.search-hidden {
   display: none !important;
 }
 

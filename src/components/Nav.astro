@@ -1,8 +1,7 @@
 ---
-import type { MenuData } from '../types/menu';
-import menuData from '../data/menu.json';
+import { menuData } from '../types/menu';
 
-const menu = menuData as unknown as MenuData;
+const menu = menuData;
 const sectionKeys = Object.keys(menu);
 
 const groups: Record<string, { id: string; label: string; icon: string }[]> = {};
@@ -33,7 +32,7 @@ const firstKey = sectionKeys[0];
 <nav class="nav-wrap" id="nav-wrap" aria-label="Menükategorien">
   <div class="search-wrap">
     <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input class="search-input" id="search-input" type="text" placeholder="Suche..." autocomplete="off" />
+    <input class="search-input" id="search-input" type="text" placeholder="Suche..." autocomplete="off" aria-label="Menü durchsuchen" />
     <button class="search-clear hidden" id="search-clear" type="button" aria-label="Suche leeren">&times;</button>
     <button class="search-all" id="search-all" type="button" aria-label="Alles anzeigen" title="Alles anzeigen">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
@@ -46,13 +45,14 @@ const firstKey = sectionKeys[0];
       <div class="nav-scroll">
         {tabs.map((tab) => (
           <button
+            id={`tab-${tab.id}`}
             class={`nav-chip${tab.id === firstKey ? ' active' : ''}`}
             data-tab={tab.id}
             role="tab"
             aria-selected={tab.id === firstKey ? 'true' : 'false'}
             aria-controls={`sec-${tab.id}`}
           >
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" set:html={icons[tab.icon]} />
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" set:html={icons[tab.icon] || ''} />
             {tab.label}
           </button>
         ))}

@@ -5,10 +5,9 @@ import Nav from '../components/Nav.astro';
 import MenuSection from '../components/MenuSection.astro';
 import AllergenLegend from '../components/AllergenLegend.astro';
 import Footer from '../components/Footer.astro';
-import type { MenuData } from '../types/menu';
-import menuData from '../data/menu.json';
+import { menuData } from '../types/menu';
 
-const menu = menuData as unknown as MenuData;
+const menu = menuData;
 const sectionKeys = Object.keys(menu);
 ---
 
