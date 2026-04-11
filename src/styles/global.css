@@ -581,6 +581,26 @@ body {
   letter-spacing: 0.06em;
 }
 
+.footer-ig {
+  display: inline-flex;
+  margin-top: var(--space-sm);
+}
+
+.footer-ig svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--ink-muted);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.2s ease;
+}
+
+.footer-ig:hover svg {
+  stroke: var(--ink-soft);
+}
+
 .footer-links {
   display: flex;
   justify-content: center;
