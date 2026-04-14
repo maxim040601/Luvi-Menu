@@ -41,7 +41,7 @@
     "items": [
       { "name": "Wasser mit Sprudel", "price": 3, "desc": "0,33l" },
       { "name": "Wasser still", "price": 3, "desc": "0,33l" },
-      { "name": "Red Bull", "price": 4, "desc": "0,25l" },
+      { "name": "Red Bull", "price": 4.5, "desc": "0,25l" },
       { "name": "Paulaner Spezi", "price": 4, "desc": "0,5l" },
       { "name": "Elephant Bay", "price": 4, "desc": "Mango, Granatapfel, Lime Mint, Pink Grapefruit, Blueberry, Peach, Lemon, Kirsche, Exotic" }
     ]
